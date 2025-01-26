@@ -9,13 +9,12 @@ A <a href="https://www.nerdfonts.com">Nerd Font</a> is installed and enabled in 
 ## Usage
 
 ```sh
--bash:~$cat $PREFIX/usr/etc/termux-login.sh
+-bash:~$ nano $PREFIX/usr/etc/termux-login.sh
 #!/bin/bash
 
 [ -z "$BASH_VERSION" ] && exec bash "$0" "$@"
-trap '' SIGINT
-#SIGTSTP
+trap '' SIGINT #SIGTSTP
 
 source ~/termcreed/*.sh
-termcreed
+
 ```
