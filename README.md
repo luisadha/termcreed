@@ -1,5 +1,5 @@
 # termcreed
-A library for termux-login.sh
+A Script for termux-login.sh usage
 <a href="https://asciinema.org/a/UZPoC6PqFApLTadT1aO8n7ek6" target="_blank"><img src="https://asciinema.org/a/UZPoC6PqFApLTadT1aO8n7ek6.svg" /></a>
 
 # Prerequisites
