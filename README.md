@@ -2,6 +2,8 @@
 A library for termux-login.sh
 <a href="https://asciinema.org/a/UZPoC6PqFApLTadT1aO8n7ek6" target="_blank"><img src="https://asciinema.org/a/UZPoC6PqFApLTadT1aO8n7ek6.svg" /></a>
 
+# Prerequisites
+
 A <a href="https://www.nerdfonts.com">Nerd Font</a> is installed and enabled in your terminal.
 
 ## Usage
