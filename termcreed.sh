@@ -25,10 +25,9 @@ center_text() {
     local text_length=${#text}
     local padding=$(( (cols - text_length) / 2 ))
 
-    # Jika padding negatif, set ke 0
     (( padding < 0 )) && padding=0
 
-    # Cetak teks dengan spasi di depan, lalu pipe ke `boxes`
+    # Cetak teks dengan spasi di depan lalu pipe ke `boxes`
     printf "%*s%s\n" "$padding" "" "$text" | boxes -d "$@" 
 
 }
