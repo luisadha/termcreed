@@ -1,6 +1,10 @@
 # termcreed
 A library for termux-login.sh
 
+# Requirement
+- ldd $(which tput)
+- which boxes
+- which age
 
 ## Usage
 
