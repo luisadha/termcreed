@@ -6,7 +6,7 @@
 
 # Your credential
 username_valid="$(cat ~/.ssh/userid)";
-export password_valid="$(age -d -i ~/.ssh/keyid.txt ~/.ssh/passid)"
+password_valid="$(age -d -i ~/.ssh/keyid.txt ~/.ssh/passid)"
 
 sym="┃";
 border_split=('┏' '┓' '━' '┗' '┛')
