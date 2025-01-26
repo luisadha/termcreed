@@ -67,9 +67,9 @@ tput sc; pasw_form "PASSWORD:"; tput cup 4 11; read -s password; tput cup 5; ech
  if [[ "$username" == "$username_valid" && "$password" == "$password_valid" ]]; then
 	 center_text "Login successful!" -d stone
     break
-else
-    center_text "Login failed!" -d f90-box
-    sleep 1
+ else
+         center_text "Login failed!" -d f90-box
+      sleep 1
     continue
-fi
+ fi
 done
