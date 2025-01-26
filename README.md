@@ -1,6 +1,6 @@
 # termcreed
 A library for termux-login.sh
-
+<a href="https://asciinema.org/a/UZPoC6PqFApLTadT1aO8n7ek6" target="_blank"><img src="https://asciinema.org/a/UZPoC6PqFApLTadT1aO8n7ek6.svg" /></a>
 # Requirement
 - ldd $(which tput)
 - which boxes
