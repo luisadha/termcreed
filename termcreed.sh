@@ -6,8 +6,11 @@
 
 # Your credential
 username_valid="$(cat ~/.ssh/userid)";
-password_valid="$(age -d -i ~/.ssh/keyid.txt ~/.ssh/passid)"
+password_valid="$(age -d -i ~/.ssh/keyid.txt ~/.ssh/passid)" # Encrypted password stored at ~/.ssh/passid or your options
 
+
+
+# Note: You shouldn't touch this settings unless you really know what you are doing.
 sym="┃";
 border_split=('┏' '┓' '━' '┗' '┛')
 width=30
