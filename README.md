@@ -6,7 +6,13 @@ A Script for termux-login.sh usage
 
 A <a href="https://www.nerdfonts.com">Nerd Font</a> is installed and enabled in your terminal.
 
-## Usage
+# Deps.
+
+* age
+* ncurses
+* boxes
+  
+# Usage
 
 ```sh
 -bash:~$ nano $PREFIX/etc/termux-login.sh
@@ -18,3 +24,6 @@ trap '' SIGINT #SIGTSTP
 source ~/termcreed/*.sh
 
 ```
+
+# License
+MIT
