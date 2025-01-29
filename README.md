@@ -9,7 +9,7 @@ A <a href="https://www.nerdfonts.com">Nerd Font</a> is installed and enabled in 
 ## Usage
 
 ```sh
--bash:~$ nano $PREFIX/usr/etc/termux-login.sh
+-bash:~$ nano $PREFIX/etc/termux-login.sh
 #!/bin/bash
 
 [ -z "$BASH_VERSION" ] && exec bash "$0" "$@"
