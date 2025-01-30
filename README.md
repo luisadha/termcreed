@@ -14,15 +14,15 @@ A <a href="https://www.nerdfonts.com">Nerd Font</a> is installed and enabled in 
   
 # Usage
 
-```sh
--bash:~$ nano $PREFIX/etc/termux-login.sh
-#!/bin/bash
+Backup first your termux-login.sh
 
+```sh
+
+echo '
 [ -z "$BASH_VERSION" ] && exec bash "$0" "$@"
 trap '' SIGINT #SIGTSTP
 
-source ~/termcreed/*.sh
-
+source ~/termcreed/*.sh ' > $PREFIX/etc/termux-login.sh
 ```
 ## forgot password?
 
