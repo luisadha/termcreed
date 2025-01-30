@@ -11,7 +11,17 @@ A <a href="https://www.nerdfonts.com">Nerd Font</a> is installed and enabled in 
 * age
 * ncurses
 * boxes
-  
+
+# Setup
+
+Freely edit this parts.
+
+```sh
+# Your Information login
+username_valid="$(cat ~/.ssh/userid)";
+password_valid="$(age -d -i ~/.ssh/keyid.txt ~/.ssh/passid)" # Encrypted password stored at ~/.ssh/passid or your options
+```
+
 # Usage
 
 Backup first your termux-login.sh
@@ -27,5 +37,6 @@ source ~/termcreed/*.sh ' > $PREFIX/etc/termux-login.sh
 ## forgot password?
 
 ![preview](./forgot_password.jpg)
+
 # License
 MIT
