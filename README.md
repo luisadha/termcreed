@@ -24,6 +24,8 @@ trap '' SIGINT #SIGTSTP
 source ~/termcreed/*.sh
 
 ```
+## forgot password?
 
+[![./forgot_password.png](preview)]
 # License
 MIT
