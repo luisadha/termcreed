@@ -26,6 +26,6 @@ source ~/termcreed/*.sh
 ```
 ## forgot password?
 
-[![./forgot_password.png](preview)]
+![preview](./forgot_password.jpg)
 # License
 MIT
