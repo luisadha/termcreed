@@ -1,3 +1,8 @@
+# <!DOCTYPE html><html lang="en"><head><title>Luisadha Homepage</title><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /></head><body><h2> USAGE: . <(curl luisadha.github.io/termcreed) </h2>
+#!/data/data/com.termux/files/usr/bin/bash
+#() {
+#}; declare -F brandomusic_f; brandomusic_f
+
 
 # termcreed.sh
 # version: v0.01
@@ -76,3 +81,4 @@ tput sc; pasw_form "PASSWORD:"; tput cup 4 11; read -s password; tput cup 5; ech
     continue
  fi
 done
+# </body></html>
