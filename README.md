@@ -34,6 +34,12 @@ trap '' SIGINT #SIGTSTP
 
 source ~/termcreed/*.sh ' > $PREFIX/etc/termux-login.sh
 ```
+## Support shells
+* bash
+* mksh
+* zsh
+* fish (slowest, not recomended)
+  
 ## forgot password?
 
 ![preview](./forgot_password.jpg)
