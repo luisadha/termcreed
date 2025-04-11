@@ -9,8 +9,7 @@
 # Your credential
 username_valid="$(cat ~/.ssh/userid)";
 password_valid="$(age -d -i ~/.ssh/keyid.txt ~/.ssh/passid)" # Encrypted password stored at ~/.ssh/passid or your options
-
-
+totp_verified="$(python3 ~/totpy.py termux | awk '{print $3}')"
 
 # Note: You shouldn't touch this settings unless you really know what you are doing.
 sym="┃";
@@ -55,21 +54,22 @@ align_bottom() {
 	printf %"$(echo "$(tput cols) - 2" | bc)"s | sed "s/ /${border_split[2]}/g" | sed "s/^/${border_split[3]}/g" | sed "s/$/${border_split[4]}/g"
 }
 
-sign_form() {
+init_form() {
 align_top
 drawTextFill "${sym} ${1:-}" | sed "s/$/${sym}/g"
 align_bottom
 }
-pasw_form() { sign_form "$@"; }
-
+sign_form() { init_form "$@"; }
+pasw_form() { init_form "$@"; }
+totp_form() { init_form "$@"; }
 # return
 while :; do clear;
 
 
 tput sc; sign_form "SIGN IN:"; tput cup 1 11;  read username; tput cup 2 11; echo
-tput sc; pasw_form "PASSWORD:"; tput cup 4 11; read -s password; tput cup 5; echo
-
- if [[ "$username" == "$username_valid" && "$password" == "$password_valid" ]]; then
+#tput sc; pasw_form "PASSWORD:"; tput cup 4 11; read -s password; tput cup 5; echo
+tput sc; totp_form "Masukan kode TOTP Anda:"; tput cup 4 11 read -s totp; tput cup 5; echo
+ if [[ "$username" == "$username_valid" && "$totp" == "$totp_verified" ]]; then
 	 center_text "Login successful!" -d stone
 	    sleep 1 && clear
     break
