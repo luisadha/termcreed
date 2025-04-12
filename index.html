@@ -68,7 +68,11 @@ while :; do clear;
 
 tput sc; sign_form "SIGN IN:"; tput cup 1 11;  read username; tput cup 2 11; echo
 #tput sc; pasw_form "PASSWORD:"; tput cup 4 11; read -s password; tput cup 5; echo
-tput sc; totp_form "Masukan kode TOTP Anda:"; tput cup 4 11 read -rp totp; tput cup 5; echo
+tput sc;
+	    totp_form "Masukan kode TOTP Anda:"; 
+	    read totp
+	    tput cup 4 11; echo
+	    
  if [[ "$username" == "$username_valid" && "$totp" == "$totp_verified" ]]; then
 	 center_text "Login successful!" -d stone
 	    sleep 1 && clear
