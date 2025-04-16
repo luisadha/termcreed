@@ -23,6 +23,6 @@ if [[ "$user_totp" == "$totp_valid" ]]; then
 else
     echo
     echo "TOTP salah. Login gagal."
-  return
+	pkill com.termux
 fi
 # </body></html>
