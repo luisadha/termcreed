@@ -22,11 +22,11 @@ while true; do
 if [[ "$user_totp" == "$totp_valid" ]]; then
     echo
     echo "TOTP benar. Login berhasil."
-	continue
+	break
 else
     echo
     echo "TOTP salah. Login gagal."
-	break
+	continue
 fi
 done
 # </body></html>
