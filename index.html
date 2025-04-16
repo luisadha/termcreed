@@ -68,15 +68,15 @@ totp_form() { init_form "$@"; }
 
 #tput sc; sign_form "SIGN IN:"; tput cup 1 11;  read username; tput cup 2 11; echo
 #tput sc; pasw_form "PASSWORD:"; tput cup 4 11; read -s password; tput cup 5; echo
-tput sc; totp_form "Masukan kode TOTP Anda:"; tput cup 4 11 read -s totp; tput cup 5; echo
+tput sc; totp_form "Masukan kode TOTP Anda:"; tput cup 4 11; read -s totp; tput cup 5; echo
  if [[ "$totp" == "$totp_verified" ]]; then
 	 center_text "Login successful!" -d stone
 	    sleep 1 && clear
-    break
+    #break
  else
          center_text "Login failed!" -d f90-box
       sleep 1
-    continue
+   # continue
  fi
 #done
 # </body></html>
