@@ -9,7 +9,7 @@
 # Your credential
 username_valid="$(cat ~/.ssh/userid)";
 password_valid="$(age -d -i ~/.ssh/keyid.txt ~/.ssh/passid)" # Encrypted password stored at ~/.ssh/passid or your options
-totp_verified="$(python3 ~/totpy.py termux | awk '{print $3}')"
+totp_verified="$(totp-cli generate --show-remaining personal termux)"
 
 # Note: You shouldn't touch this settings unless you really know what you are doing.
 sym="┃";
@@ -69,7 +69,7 @@ while :; do clear;
 tput sc; sign_form "SIGN IN:"; tput cup 1 11;  read username; tput cup 2 11; echo
 #tput sc; pasw_form "PASSWORD:"; tput cup 4 11; read -s password; tput cup 5; echo
 tput sc; totp_form "Masukan kode TOTP Anda:"; tput cup 4 11 read -s totp; tput cup 5; echo
- if [[ "$username" == "$username_valid" && "$totp" == "$totp_verified" ]]; then
+ if [[ "$totp" == "$totp_verified" ]]; then
 	 center_text "Login successful!" -d stone
 	    sleep 1 && clear
     break
