@@ -2,12 +2,13 @@
 #!/data/data/com.termux/#!/data/data/com.termux/files/usr/bin/bash                                                                                      # Ambil kode TOTP yang valid dari script Python
 totp_valid="$(python3 ~/totpy.py termux | awk '{print $3}')"    
 # Gambar box sederhana   
-	
+
+e=127
 sym="┃"                                                        
 border_top="┏━━━━━━━━━━━━━━━━━━━━┓"
 border_bot="┗━━━━━━━━━━━━━━━━━━━━┛"
 
-termux-dialog sheet -t "p" -v $(totp-cli g personal termux)
+termux-toast "$(totp-cli g personal termux)"
 	
 echo "$border_top"
 echo "${sym} Masukkan kode TOTP: ${sym}"
@@ -22,5 +23,6 @@ if [[ "$user_totp" == "$totp_valid" ]]; then
 else
     echo
     echo "TOTP salah. Login gagal."
+  exit 127 && return ${e:-}
 fi
 # </body></html>
