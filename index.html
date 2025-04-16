@@ -6,7 +6,9 @@ totp_valid="$(python3 ~/totpy.py termux | awk '{print $3}')"
 sym="┃"                                                        
 border_top="┏━━━━━━━━━━━━━━━━━━━━┓"
 border_bot="┗━━━━━━━━━━━━━━━━━━━━┛"
-termux-toast "$(totp-cli generate personal termux)" && termux-clipboard-set "$(totp-cli generate personal termux)" 
+
+termux-dialog sheet -t "p" -v $(totp-cli g personal termux)
+	
 echo "$border_top"
 echo "${sym} Masukkan kode TOTP: ${sym}"
 echo "$border_bot"                                              
