@@ -11,17 +11,21 @@ border_bot="┗━━━━━━━━━━━━━━━━━━━━┛"
 termux-toast "$(totp-cli g personal termux)"
 	
 echo "$border_top"
-echo "${sym} Masukkan kode TOTP: ${sym}"
+echo "${sym} Masukkan kode TOTP ${sym}"
 echo "$border_bot"                                              
 # Pindah kursor ke lokasi input                                 tput cup 2 3
 read -rp "TOTP: " user_totp
 
+	
+while true; do
 # Verifikasi
 if [[ "$user_totp" == "$totp_valid" ]]; then
     echo
     echo "TOTP benar. Login berhasil."
+	continue
 else
     echo
     echo "TOTP salah. Login gagal."
+	break
 fi
 # </body></html>
