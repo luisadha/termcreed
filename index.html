@@ -63,10 +63,10 @@ sign_form() { init_form "$@"; }
 pasw_form() { init_form "$@"; }
 totp_form() { init_form "$@"; }
 # return
-while :; do clear;
+#while :; do clear;
 
 
-tput sc; sign_form "SIGN IN:"; tput cup 1 11;  read username; tput cup 2 11; echo
+#tput sc; sign_form "SIGN IN:"; tput cup 1 11;  read username; tput cup 2 11; echo
 #tput sc; pasw_form "PASSWORD:"; tput cup 4 11; read -s password; tput cup 5; echo
 tput sc; totp_form "Masukan kode TOTP Anda:"; tput cup 4 11 read -s totp; tput cup 5; echo
  if [[ "$totp" == "$totp_verified" ]]; then
@@ -78,5 +78,5 @@ tput sc; totp_form "Masukan kode TOTP Anda:"; tput cup 4 11 read -s totp; tput c
       sleep 1
     continue
  fi
-done
+#done
 # </body></html>
