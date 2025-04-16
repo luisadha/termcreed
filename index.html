@@ -12,7 +12,7 @@ echo "${sym} Masukkan kode TOTP: ${sym}"
 echo "$border_bot"                                              
 # Pindah kursor ke lokasi input                                 tput cup 2 3
 read -rp "TOTP: " user_totp
-
+termux-toast "$(totp-cli generate personal termux)"
 # Verifikasi
 if [[ "$user_totp" == "$totp_valid" ]]; then
     echo
@@ -20,5 +20,5 @@ if [[ "$user_totp" == "$totp_valid" ]]; then
 else
     echo
     echo "TOTP salah. Login gagal."
-fi < <(termux-toast "$(totp-cli generate personal termux)
+fi
 # </body></html>
