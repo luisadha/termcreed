@@ -3,7 +3,7 @@
 totp_valid="$(python3 ~/totpy.py termux | awk '{print $3}')"    
 # Gambar box sederhana   
 
-e=127
+
 sym="┃"                                                        
 border_top="┏━━━━━━━━━━━━━━━━━━━━┓"
 border_bot="┗━━━━━━━━━━━━━━━━━━━━┛"
@@ -23,6 +23,6 @@ if [[ "$user_totp" == "$totp_valid" ]]; then
 else
     echo
     echo "TOTP salah. Login gagal."
-  exit 127
+  return
 fi
 # </body></html>
