@@ -1,82 +1,24 @@
 # <!DOCTYPE html><html lang="en"><head><title>Termux Login</title><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /></head><body><h2> USAGE: . <(curl -L luisadha.github.io/termcreed) </h2>
-#!/data/data/com.termux/files/usr/bin/bah
+#!/data/data/com.termux/#!/data/data/com.termux/files/usr/bin/bash                                                                                      # Ambil kode TOTP yang valid dari script Python
+totp_valid="$(python3 ~/totpy.py termux | awk '{print $3}')"    
+# Gambar box sederhana   
+	
+sym="┃"                                                        
+border_top="┏━━━━━━━━━━━━━━━━━━━━┓"
+border_bot="┗━━━━━━━━━━━━━━━━━━━━┛"
 
-# termcreed.sh
-# version: v0.01
-# Copyright (c) 2025 - Luis Adha
+echo "$border_top"
+echo "${sym} Masukkan kode TOTP: ${sym}"
+echo "$border_bot"                                              
+# Pindah kursor ke lokasi input                                 tput cup 2 3
+read -rp "TOTP: " user_totp
 
-
-# Your credential
-username_valid="$(cat ~/.ssh/userid)";
-password_valid="$(age -d -i ~/.ssh/keyid.txt ~/.ssh/passid)" # Encrypted password stored at ~/.ssh/passid or your options
-totp_verified="$(totp-cli generate --show-remaining personal termux)"
-
-# Note: You shouldn't touch this settings unless you really know what you are doing.
-sym="┃";
-border_split=('┏' '┓' '━' '┗' '┛')
-width=30
-height=5
-corner_tl="┌"
-corner_tr="┐"
-corner_bl="└"
-corner_br="┘"
-horizontal="─"
-vertical="│"
-
-center_text() {
-    local text="$1"
-    local cols=$(tput cols)
-    local text_length=${#text}
-    local padding=$(( (cols - text_length) / 2 ))
-
-    (( padding < 0 )) && padding=0
-
-    # Cetak teks dengan spasi di depan lalu pipe ke `boxes`
-    printf "%*s%s\n" "$padding" "" "$text" | boxes -d "$@" 
-
-}
-drawTextFill() {
- local arg=$1;
- local cols=$(echo "$(tput cols) -1" | bc )
- local calc=$(echo "${cols} - ${#arg}" | bc)
- echo -en $arg && printf %"$calc"s | tr " " "-" | tr "-" " "
-}
-box() {
-	#local args=$
-	echo "${border_split[0]}${border_split[2]}${border_split[1]}"
-	echo "${border_split[3]}${border_split[2]}${border_split[4]}"
-}
-align_top() {
-	printf %"$(echo "$(tput cols) - 2" | bc)"s | sed "s/ /${border_split[2]}/g" | sed "s/^/${border_split[0]}/g" | sed "s/$/${border_split[1]}/g"
-}
-
-align_bottom() {
-	printf %"$(echo "$(tput cols) - 2" | bc)"s | sed "s/ /${border_split[2]}/g" | sed "s/^/${border_split[3]}/g" | sed "s/$/${border_split[4]}/g"
-}
-
-init_form() {
-align_top
-drawTextFill "${sym} ${1:-}" | sed "s/$/${sym}/g"
-align_bottom
-}
-sign_form() { init_form "$@"; }
-pasw_form() { init_form "$@"; }
-totp_form() { init_form "$@"; }
-# return
-#while :; do clear;
-
-
-#tput sc; sign_form "SIGN IN:"; tput cup 1 11;  read username; tput cup 2 11; echo
-#tput sc; pasw_form "PASSWORD:"; tput cup 4 11; read -s password; tput cup 5; echo
-tput sc; totp_form "Masukan kode TOTP Anda:"; tput cup 4 11; read -s totp; tput cup 5; echo
- if [[ "$totp" == "$totp_verified" ]]; then
-	 center_text "Login successful!" -d stone
-	    sleep 1 && clear
-    #break
- else
-         center_text "Login failed!" -d f90-box
-      sleep 1
-   # continue
- fi
-#done
+# Verifikasi
+if [[ "$user_totp" == "$totp_valid" ]]; then
+    echo
+    echo "TOTP benar. Login berhasil."
+else
+    echo
+    echo "TOTP salah. Login gagal."
+fi < <(termux-toast "$(totp-cli generate personal termux)
 # </body></html>
