@@ -23,6 +23,6 @@ if [[ "$user_totp" == "$totp_valid" ]]; then
 else
     echo
     echo "TOTP salah. Login gagal."
-  exit 127 && return ${e:-}
+  exit 127
 fi
 # </body></html>
