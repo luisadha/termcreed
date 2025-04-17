@@ -21,12 +21,14 @@ while true; do
 # Verifikasi
 if [[ "$user_totp" == "$totp_valid" ]]; then
     echo
+	timeout 3s curl ascii.live/rick
     echo "TOTP benar. Login berhasil."
 	break
 else
     echo
-    echo "TOTP salah. Login gagal."
-	exit
+    echo "Wrong TOTP! . Failed to login."
+	
+ continue
 fi
 done
 # </body></html>
