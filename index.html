@@ -19,10 +19,9 @@ termux-toast "$(totp-cli generate --show-remaining personal termux)"
 echo "$border_top"
 echo "${sym} Masukkan kode TOTP ${sym}"
 echo "$border_bot"                                              
-# Pindah kursor ke lokasi input                                 tput cup 2 3
+tput cup 2 3
 read -rp "TOTP: " user_totp
 
-	
 while true; do
 	
 if [[ "$user_totp" == "$totp_valid" ]]; then
