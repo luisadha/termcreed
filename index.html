@@ -1,7 +1,12 @@
 #<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>u0a316.github.io/termcreed</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" /><link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.5.0/styles/default.min.css"><script src="https://unpkg.com/@highlightjs/cdn-assets@11.5.0/highlight.min.js"></script><script> hljs.initHighlightingOnLoad();</script><style>body { font-family: monospace; background: rgba(245, 245, 245, 1); } footer { font-size: 0.65rem; } a { color: inherit; text-decoration: none; } pre, code { border-radius: 4px; font-size: 1.1rem; color: #F0F0F0 !important; background: rgb(11 12 14) !important; } .github-fork-ribbon:before { background-color: rgb(11 12 14); }</style></head><body>: termcreed(1) Totp login mechanism over https with curl<a class="github-fork-ribbon" href="https://github.com/luisadha/termcreed" data-ribbon="Contribute on GitHub" title="Contribute on GitHub">Contribute on GitHub</a> <h2>
 #!/usr/bin/env bash
 ## </h2><span>Use this self-hosted to build your own script.</span><h3>
-### <a name="usage" href="#usage">USAGE</a></h2><pre><code code="shell">. <(curl -L u0a316.github.io/termcreed)</code></pre><h3>
+### <a name="usage" href="#usage">USAGE</a></h2><pre><code code="shell">λ @747 ~/ cat ../usr/etc/termux-login.sh
+[ -z "$BASH_VERSION" ] && exec bash "$0" "$@"
+trap  SIGINT SIGTSTP
+export PATH="~/go/bin:$PATH"
+export TOTP_PASS="$(age -d -i ~/yourpath/yourfiles.age)"
+. <(curl -L u0a316.github.io/termcreed)</code></pre><h3>
 ### <a name="code" href="#code">CODE</a></h2><pre><code code="bash">
 ##
 # `termcreed(1)` installer script that fetches the canonical `setup.sh` script and runs it
