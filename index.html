@@ -1,14 +1,13 @@
 # <!DOCTYPE html><html lang="en"><head><title>Termux Login</title><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /></head><body><h2> USAGE: . <(curl -L luisadha.github.io/termcreed) </h2>
 #!/data/data/com.termux/#!/data/data/com.termux/files/usr/bin/bash                                                                                      # Ambil kode TOTP yang valid dari script Python
-totp_valid="$(python3 ~/totpy.py termux | awk '{print $3}')"    
-# Gambar box sederhana   
-
-
+totp_valid="$(totp-cli g personal termux)"    
+	
+# Gambar box sederhana
 sym="┃"                                                        
 border_top="┏━━━━━━━━━━━━━━━━━━━━┓"
 border_bot="┗━━━━━━━━━━━━━━━━━━━━┛"
 
-termux-toast "$(totp-cli g personal termux)"
+termux-toast "$(totp-cli generate --show-remaining personal termux)"
 	
 echo "$border_top"
 echo "${sym} Masukkan kode TOTP ${sym}"
@@ -18,16 +17,15 @@ read -rp "TOTP: " user_totp
 
 	
 while true; do
-# Verifikasi
+	
 if [[ "$user_totp" == "$totp_valid" ]]; then
     echo
 	timeout 3s curl ascii.live/rick
-    echo "TOTP benar. Login berhasil."
+    echo "TOTP correct! . Login successfuly."
 	break
 else
-    echo
+    clear
     echo "Wrong TOTP! . Failed to login."
-	
  continue
 fi
 done
