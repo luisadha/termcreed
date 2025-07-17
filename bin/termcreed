@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+# BASH WRAPPER: IMPORTANT DON'T CHANGE ANYTHING HERE THIS MADE FOR BASHER PACKAGE MANAGER
+unset HISTSIZE
+__DIR__="${HOME}/.basher/cellar/packages/luisadha/termcreed"
+exec bash ${__DIR__}/index.html "$@"
