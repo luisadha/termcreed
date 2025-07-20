@@ -76,8 +76,8 @@ pasw_form() { sign_form "$@"; }
 #exit || return # for debug
 while :; do clear;
 
-tput sc; sign_form "$text_username"; tput cup $lineno_1 $ucursor; read username; tput cup $x; echo
-tput sc; pasw_form "$text_password"; tput cup $lineno_2 $pcursor; read -s password; tput cup $y;
+tput sc; sign_form "$text_username"; tput cup $lineno_1 $ucursor; read username < /dev/tty; tput cup $x; echo
+tput sc; pasw_form "$text_password"; tput cup $lineno_2 $pcursor; read -s password < /dev/tty; tput cup $y;
 
  if [[ "$username" == "$username_valid" && "$password" == "$password_valid" ]]; then
 	    center_text "${if_sucstr}!" -d stone
